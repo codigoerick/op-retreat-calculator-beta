@@ -83,7 +83,14 @@ const talentConfigs = {
 
    },
    120: {},
-   130: {}
+   130: {},
+   140: {},
+   150: {},
+   160: {},
+   170: {},
+   180: {},
+   190: {},
+   200: {}
 };
 
 function clearOverlays() {
@@ -149,7 +156,7 @@ function applyLevels(node, levelCount) {
    iconsWrapper.className = 'd-flex align-items-center justify-content-center';
    iconsWrapper.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
    iconsWrapper.style.width = '100%'; // Full width
-   iconsWrapper.style.gap = '2px'; // Small separation
+   iconsWrapper.style.gap = '3px'; // Small separation
    iconsWrapper.style.padding = '2px 0'; // Vertical padding for bar height
 
    for (let i = 0; i < levelCount; i++) {
