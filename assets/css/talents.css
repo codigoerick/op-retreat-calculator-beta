@@ -88,12 +88,22 @@ main {
         padding: 0.375rem 0.5rem;
     }
 
+    /* Reduce level icons for mobile */
+    .talent-node .level-overlay img {
+        width: 8px !important;
+        height: 8px !important;
+    }
+
     /* Adjust counter */
     .star-counter-display {
         bottom: 140px;
-        /* Higher because buttons might wrap */
         right: 10px;
-        font-size: 1rem;
-        padding: 6px 10px;
+        font-size: 0.9rem;
+        padding: 4px 8px;
+    }
+
+    .star-counter-display img {
+        width: 16px !important;
+        height: 16px !important;
     }
 }
