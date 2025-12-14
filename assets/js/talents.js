@@ -165,6 +165,31 @@ function applyLevels(node, levelCount) {
    node.appendChild(levelOverlay);
 }
 
+
+function calculateActiveStars(configKey) {
+   const configData = talentConfigs[configKey];
+   if (!configData) return 0;
+
+   let total = 0;
+   // Iterate over configured rows
+   for (const row in configData) {
+      if (configData.hasOwnProperty(row)) {
+         const cols = configData[row];
+         if (Array.isArray(cols)) {
+            cols.forEach(lvl => total += lvl);
+         }
+      }
+   }
+   return total;
+}
+
+function updateStarCounter(active, configValue) {
+   const display = document.getElementById('star-count-text');
+   if (display) {
+      display.textContent = `${active} / ${configValue}`;
+   }
+}
+
 function renderGrid(configKey) {
    clearOverlays();
 
@@ -172,7 +197,7 @@ function renderGrid(configKey) {
    if (!configData || Object.keys(configData).length === 0) {
       console.warn(`Configuration for ${configKey} is empty or missing.`);
       alert(`Configuración ${configKey} aún no implementada.`);
-      resetGrid(); // Default to lock if empty
+      resetGrid();
       return;
    }
 
@@ -194,16 +219,20 @@ function renderGrid(configKey) {
          applyLevels(node, level);
       });
    });
+
+   // Update Counter
+   const active = calculateActiveStars(configKey);
+   updateStarCounter(active, configKey);
 }
 
 function resetGrid() {
    clearOverlays();
    const nodes = document.querySelectorAll('.talent-node');
    nodes.forEach(node => applyLock(node));
+   updateStarCounter(0, '---');
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-   // Dynamic binding for buttons
    const buttons = document.querySelectorAll('[data-talent-config]');
    buttons.forEach(btn => {
       btn.addEventListener('click', () => {
