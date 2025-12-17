@@ -42,7 +42,7 @@
 
 /* Adjust main container bottom padding */
 main {
-    padding-bottom: 150px;
+    padding-bottom: 160px;
     /* Increased ensure last row is visible */
 }
 
@@ -75,7 +75,7 @@ main {
     */
 
     .card-body .d-flex.gap-5 {
-        gap: 2rem !important;
+        gap: 3.1rem !important;
         /* Intermediate between gap-4 and gap-5 default */
         justify-content: center;
         width: 100%;
@@ -158,4 +158,13 @@ footer {
     text-align: center;
     font-size: 0.9rem;
     color: #aaa;
+}
+
+/* Custom Modal */
+.custom-modal-bg {
+    background-color: rgba(30, 30, 30, 0.85);
+    /* Dark transparent background */
+    backdrop-filter: blur(10px);
+    /* Glassmorphism effect */
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
