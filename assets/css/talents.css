@@ -51,21 +51,39 @@ main {
 
     /* Fixed small nodes on mobile */
     .talent-node {
-        width: 60px;
-        height: 60px;
+        width: 65px;
+        height: 65px;
         max-width: none;
         aspect-ratio: auto;
     }
 
     /* Override Bootstrap gaps for tighter mobile layout */
-    .card-body .d-flex.gap-4 {
+    .card-body .d-flex.gap-5 {
         gap: 1.5rem !important;
+        /* Keep horizontal gap reasonable even with gap-5 class, or increase slightly */
         justify-content: center;
         width: 100%;
     }
 
-    .card-body .d-flex.flex-column.gap-4 {
-        gap: 0.75rem !important;
+    /* Allow wider gap if screen permits, but 1.5rem is safe minimum. 
+       Actually user wants "occupy more width". 
+       3 items * 65 = 195. 
+       Screen 360. Space = 165. 
+       2 gaps. 165/2 = 82px (approx 5rem). 
+       So gap-5 (3rem) fits comfortably. 
+       I will remove the horizontal gap override or set it to allow larger gap.
+    */
+
+    .card-body .d-flex.gap-5 {
+        gap: 2rem !important;
+        /* Intermediate between gap-4 and gap-5 default */
+        justify-content: center;
+        width: 100%;
+    }
+
+    .card-body .d-flex.flex-column.gap-5 {
+        gap: 1.5rem !important;
+        /* Increase vertical gap (was 0.75rem for gap-4). gap-5 default is 3rem. 1.5rem is double previous. */
     }
 
     /* Adjust controls */
@@ -81,8 +99,8 @@ main {
 
     /* Resize level icons for mobile */
     .talent-node .level-overlay img {
-        width: 10px !important;
-        height: 10px !important;
+        width: 15px !important;
+        height: 15px !important;
     }
 
     /* Resize main icon for mobile */
