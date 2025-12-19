@@ -776,109 +776,72 @@
       <div class="modal-dialog modal-dialog-centered modal-lg">
          <div class="modal-content text-white custom-modal-bg">
             <div class="modal-header border-0">
-               <h5 class="modal-title" id="gearModalLabel">Equipo recomendado</h5>
+               <h5 class="modal-title" id="gearModalLabel">Recommended Gear</h5>
                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
                   aria-label="Close"></button>
             </div>
             <div class="modal-body">
-               <div class="row g-3 justify-content-center">
-                  <!-- Gears Generated Items -->
-                  <div class="col-4 col-md-3">
-                     <div class="d-flex justify-content-center align-items-center position-relative"
-                        style="aspect-ratio: 1/1;">
-                        <img src="assets/images/bg/bg-yellow-gear.png" class="position-absolute w-75 h-75"
-                           style="object-fit: cover;">
-                        <img src="assets/images/gears/Equip_Necklace_8_Icon_Elite.png"
-                           class="position-absolute w-50 h-50" style="object-fit: contain;">
+               <!-- Buttons -->
+               <!-- Sticky top for buttons inside modal? Maybe not needed if modal is large enough -->
+               <div class="d-flex justify-content-center gap-3 mb-4 sticky-top bg-dark pt-2 pb-2" style="z-index: 10;">
+                  <button class="btn btn-outline-light" id="btn-start" onclick="setGearMode('start')">Start</button>
+                  <button class="btn btn-outline-light" id="btn-advanced"
+                     onclick="setGearMode('advanced')">Advanced</button>
+                  <button class="btn btn-outline-light" id="btn-target" onclick="setGearMode('target')">Target</button>
+               </div>
+
+               <div class="row align-items-center">
+                  <!-- Left Side -->
+                  <div class="col-3 d-flex flex-column gap-3 align-items-center">
+                     <!-- Weapon -->
+                     <div class="gear-slot position-relative" id="slot-weapon" style="width: 70px; height: 70px;">
+                        <div class="gear-bg position-absolute w-100 h-100 start-0 top-0 rounded"
+                           style="background-size: cover; background-position: center;"></div>
+                        <img class="gear-icon position-absolute w-75 h-75 start-50 top-50 translate-middle"
+                           style="object-fit: contain;">
                      </div>
-                  </div>
-                  <div class="col-4 col-md-3">
-                     <div class="d-flex justify-content-center align-items-center position-relative"
-                        style="aspect-ratio: 1/1;">
-                        <img src="assets/images/bg/bg-yellow-gear.png" class="position-absolute w-75 h-75"
-                           style="object-fit: cover;">
-                        <img src="assets/images/gears/Equip_Gloves_5_Icon_Elite.png" class="position-absolute w-50 h-50"
+                     <!-- Necklace -->
+                     <div class="gear-slot position-relative" id="slot-necklace" style="width: 70px; height: 70px;">
+                        <div class="gear-bg position-absolute w-100 h-100 start-0 top-0 rounded"
+                           style="background-size: cover; background-position: center;"></div>
+                        <img class="gear-icon position-absolute w-75 h-75 start-50 top-50 translate-middle"
+                           style="object-fit: contain;">
+                     </div>
+                     <!-- Gloves -->
+                     <div class="gear-slot position-relative" id="slot-gloves" style="width: 70px; height: 70px;">
+                        <div class="gear-bg position-absolute w-100 h-100 start-0 top-0 rounded"
+                           style="background-size: cover; background-position: center;"></div>
+                        <img class="gear-icon position-absolute w-75 h-75 start-50 top-50 translate-middle"
                            style="object-fit: contain;">
                      </div>
                   </div>
-                  <div class="col-4 col-md-3">
-                     <div class="d-flex justify-content-center align-items-center position-relative"
-                        style="aspect-ratio: 1/1;">
-                        <img src="assets/images/bg/bg-yellow-gear.png" class="position-absolute w-75 h-75"
-                           style="object-fit: cover;">
-                        <img src="assets/images/gears/Equip_Armor_8_Icon_Elite.png" class="position-absolute w-50 h-50"
+
+                  <!-- Center Hero -->
+                  <div class="col-6 d-flex justify-content-center">
+                     <img src="assets/images/hero/common.png" class="img-fluid modal-hero-img" alt="Hero">
+                  </div>
+
+                  <!-- Right Side -->
+                  <div class="col-3 d-flex flex-column gap-3 align-items-center">
+                     <!-- Armor -->
+                     <div class="gear-slot position-relative" id="slot-armor" style="width: 70px; height: 70px;">
+                        <div class="gear-bg position-absolute w-100 h-100 start-0 top-0 rounded"
+                           style="background-size: cover; background-position: center;"></div>
+                        <img class="gear-icon position-absolute w-75 h-75 start-50 top-50 translate-middle"
                            style="object-fit: contain;">
                      </div>
-                  </div>
-                  <div class="col-4 col-md-3">
-                     <div class="d-flex justify-content-center align-items-center position-relative"
-                        style="aspect-ratio: 1/1;">
-                        <img src="assets/images/bg/bg-yellow-gear.png" class="position-absolute w-75 h-75"
-                           style="object-fit: cover;">
-                        <img src="assets/images/gears/Equip_Belt_8_Icon_Elite.png" class="position-absolute w-50 h-50"
+                     <!-- Belt -->
+                     <div class="gear-slot position-relative" id="slot-belt" style="width: 70px; height: 70px;">
+                        <div class="gear-bg position-absolute w-100 h-100 start-0 top-0 rounded"
+                           style="background-size: cover; background-position: center;"></div>
+                        <img class="gear-icon position-absolute w-75 h-75 start-50 top-50 translate-middle"
                            style="object-fit: contain;">
                      </div>
-                  </div>
-                  <div class="col-4 col-md-3">
-                     <div class="d-flex justify-content-center align-items-center position-relative"
-                        style="aspect-ratio: 1/1;">
-                        <img src="assets/images/bg/bg-yellow-gear.png" class="position-absolute w-75 h-75"
-                           style="object-fit: cover;">
-                        <img src="assets/images/gears/Equip_Shoe_8_Icon_Elite.png" class="position-absolute w-50 h-50"
-                           style="object-fit: contain;">
-                     </div>
-                  </div>
-                  <div class="col-4 col-md-3">
-                     <div class="d-flex justify-content-center align-items-center position-relative"
-                        style="aspect-ratio: 1/1;">
-                        <img src="assets/images/bg/bg-yellow-gear.png" class="position-absolute w-75 h-75"
-                           style="object-fit: cover;">
-                        <img src="assets/images/gears/Equip_Necklace_7_Icon_Elite.png"
-                           class="position-absolute w-50 h-50" style="object-fit: contain;">
-                     </div>
-                  </div>
-                  <div class="col-4 col-md-3">
-                     <div class="d-flex justify-content-center align-items-center position-relative"
-                        style="aspect-ratio: 1/1;">
-                        <img src="assets/images/bg/bg-yellow-gear.png" class="position-absolute w-75 h-75"
-                           style="object-fit: cover;">
-                        <img src="assets/images/gears/Equip_Gloves_1_Icon_Elite.png" class="position-absolute w-50 h-50"
-                           style="object-fit: contain;">
-                     </div>
-                  </div>
-                  <div class="col-4 col-md-3">
-                     <div class="d-flex justify-content-center align-items-center position-relative"
-                        style="aspect-ratio: 1/1;">
-                        <img src="assets/images/bg/bg-yellow-gear.png" class="position-absolute w-75 h-75"
-                           style="object-fit: cover;">
-                        <img src="assets/images/gears/Equip_Armor_7_Icon_Elite.png" class="position-absolute w-50 h-50"
-                           style="object-fit: contain;">
-                     </div>
-                  </div>
-                  <div class="col-4 col-md-3">
-                     <div class="d-flex justify-content-center align-items-center position-relative"
-                        style="aspect-ratio: 1/1;">
-                        <img src="assets/images/bg/bg-yellow-gear.png" class="position-absolute w-75 h-75"
-                           style="object-fit: cover;">
-                        <img src="assets/images/gears/Equip_Belt_6_Icon_Elite.png" class="position-absolute w-50 h-50"
-                           style="object-fit: contain;">
-                     </div>
-                  </div>
-                  <div class="col-4 col-md-3">
-                     <div class="d-flex justify-content-center align-items-center position-relative"
-                        style="aspect-ratio: 1/1;">
-                        <img src="assets/images/bg/bg-yellow-gear.png" class="position-absolute w-75 h-75"
-                           style="object-fit: cover;">
-                        <img src="assets/images/gears/Equip_Weapon_3_Icon_Elite.png" class="position-absolute w-50 h-50"
-                           style="object-fit: contain;">
-                     </div>
-                  </div>
-                  <div class="col-4 col-md-3">
-                     <div class="d-flex justify-content-center align-items-center position-relative"
-                        style="aspect-ratio: 1/1;">
-                        <img src="assets/images/bg/bg-yellow-gear.png" class="position-absolute w-75 h-75"
-                           style="object-fit: cover;">
-                        <img src="assets/images/gears/Equip_Weapon_8_Icon_Elite.png" class="position-absolute w-50 h-50"
+                     <!-- Shoes -->
+                     <div class="gear-slot position-relative" id="slot-shoes" style="width: 70px; height: 70px;">
+                        <div class="gear-bg position-absolute w-100 h-100 start-0 top-0 rounded"
+                           style="background-size: cover; background-position: center;"></div>
+                        <img class="gear-icon position-absolute w-75 h-75 start-50 top-50 translate-middle"
                            style="object-fit: contain;">
                      </div>
                   </div>
@@ -978,6 +941,7 @@
    </div>
 
    <script src="assets/js/talents.js"></script>
+   <script src="assets/js/gears.js"></script>
 </body>
 
 </html>
