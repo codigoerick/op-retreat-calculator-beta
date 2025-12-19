@@ -178,6 +178,18 @@ footer {
     transition: max-height 0.3s ease;
 }
 
+.gear-icon.weapon-icon {
+    width: 60% !important;
+    height: 70% !important;
+    object-fit: contain;
+}
+
+.gear-icon {
+    width: 70% !important;
+    height: 70% !important;
+    object-fit: contain;
+}
+
 /* Optional: Adjust for smaller screens if needed */
 @media (max-width: 576px) {
     .modal-hero-img {
