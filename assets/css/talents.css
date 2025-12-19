@@ -212,6 +212,6 @@ footer {
 
     /* Constrain Modal Width */
     #gearModal .modal-dialog {
-        max-width: 600px;
+        max-width: 400px;
     }
 }
